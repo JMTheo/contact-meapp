@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
       case 'email':
         url = "mailto:jtheo6@hotmail.com?subject=Contato&body=Teste email";
         break;
+      case 'git':
+        url = 'https://github.com/JMTheo';
+        break;
       default:
     }
     if (await canLaunch(url)) {
@@ -110,6 +113,29 @@ class MyApp extends StatelessWidget {
                         fontSize: 20,
                         fontFamily: 'Source Sans Pro',
                       ),
+                    ),
+                  ),
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                child: FlatButton(
+                  onPressed: () {
+                    _launch('git');
+                  },
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.computer,
+                      size: 20,
+                      color: Colors.deepPurple[700],
+                    ),
+                    title: Text(
+                      "Github Page",
+                      style: TextStyle(
+                          color: Colors.deepPurple.shade900,
+                          fontSize: 20,
+                          fontFamily: 'Source Sans Pro'),
                     ),
                   ),
                 ),
