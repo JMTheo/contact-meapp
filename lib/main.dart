@@ -82,9 +82,10 @@ class MyApp extends StatelessWidget {
                     title: Text(
                       "+55 (11) 95127 - 6174",
                       style: TextStyle(
-                          color: Colors.deepPurple.shade900,
-                          fontSize: 20,
-                          fontFamily: 'Source Sans Pro'),
+                        color: Colors.deepPurple.shade900,
+                        fontSize: 20,
+                        fontFamily: 'Source Sans Pro',
+                      ),
                     ),
                   ),
                 ),
