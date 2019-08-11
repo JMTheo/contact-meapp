@@ -7,21 +7,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  _launchCaller() async {
-    const url = "tel:+5511951276174";
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Nào foi possivel abrir o discador $url';
+  _launch(action) async {
+    String url;
+    switch (action) {
+      case 'phone':
+        url = "tel:+5511951276174";
+        break;
+      case 'email':
+        url = "mailto:jtheo6@hotmail.com?subject=Contato&body=Teste email";
+        break;
+      default:
     }
-  }
-
-  _launchEmail() async {
-    const url = "mailto:jtheo6@hotmail.com?subject=Contato&body=Teste email";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Nào foi possivel enviar o email para $url';
+      throw 'Nào foi possivel concluir a ação $url';
     }
   }
 
@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                 child: FlatButton(
                   onPressed: () {
-                    _launchCaller();
+                    _launch('phone');
                   },
                   child: ListTile(
                     leading: Icon(
@@ -95,7 +95,7 @@ class MyApp extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                 child: FlatButton(
                   onPressed: () {
-                    _launchEmail();
+                    _launch('email');
                   },
                   child: ListTile(
                     leading: Icon(
